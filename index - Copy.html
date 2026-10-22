@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PeerLearn | Skill Matching</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="#"><span class="brand-mark">P</span> PeerLearn</a>
+    <nav aria-label="Main navigation">
+      <a href="#discover">Discover</a>
+      <a href="#how-it-works">How it works</a>
+    </nav>
+    <button class="button button-small" id="addProfileBtn">Add a skill</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">LEARN TOGETHER. GROW TOGETHER.</p>
+        <h1>Your next skill is<br><span>closer than you think.</span></h1>
+        <p class="hero-description">Connect with fellow students, exchange knowledge, and learn from people who are good at what you want to master.</p>
+        <a class="button" href="#discover">Explore student skills <span aria-hidden="true">→</span></a>
+        <div class="hero-stats">
+          <div><strong id="studentCount">6</strong><span>sample learners</span></div>
+          <div><strong>4</strong><span>learning areas</span></div>
+          <div><strong>1:1</strong><span>peer learning</span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-top"><span class="status-dot"></span> YOUR LEARNING COMMUNITY</div>
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="avatar avatar-main">PL</div>
+        <div class="floating-card card-top"><span class="mini-icon purple">✦</span><div><strong>Share what you know</strong><small>Teach a skill you love</small></div></div>
+        <div class="floating-card card-bottom"><span class="mini-icon green">↗</span><div><strong>Find your learning match</strong><small>Grow through collaboration</small></div></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="discover">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE COMMUNITY</p><h2>Find your skill match</h2><p class="muted">Search for a skill or explore what students can teach.</p></div>
+        <span class="demo-label">DEMO PROJECT</span>
+      </div>
+      <div class="search-row">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search skills, names, or interests…" aria-label="Search skills, names, or interests"></label>
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="all">All categories</option>
+          <option value="Technology">Technology</option>
+          <option value="Design">Design</option>
+          <option value="Music">Music</option>
+          <option value="Academics">Academics</option>
+          <option value="Communication">Communication</option>
+        </select>
+      </div>
+      <div class="results-line"><span id="resultsCount">6 students</span><span>Sample profiles · stored in this browser</span></div>
+      <div class="profile-grid" id="profileGrid"></div>
+      <div class="empty-state hidden" id="emptyState"><strong>No matching skills found</strong><p>Try another search term or category.</p></div>
+    </section>
+
+    <section class="how-section" id="how-it-works">
+      <p class="eyebrow">SIMPLE BY DESIGN</p><h2>Learning works better together.</h2>
+      <div class="steps">
+        <article class="step"><span class="step-number">01</span><h3>Share your skills</h3><p>Add a skill you can teach and a topic you want to learn.</p></article>
+        <article class="step"><span class="step-number">02</span><h3>Find a peer</h3><p>Search the student directory and discover complementary interests.</p></article>
+        <article class="step"><span class="step-number">03</span><h3>Start learning</h3><p>Send a learning request and arrange a session together.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-mark">P</span> PeerLearn</a><p>A student project for peer-to-peer knowledge sharing.</p><span>© 2026 PeerLearn · Demo version</span></footer>
+
+  <dialog id="profileDialog">
+    <form id="profileForm" method="dialog">
+      <div class="dialog-heading"><div><p class="eyebrow">JOIN THE COMMUNITY</p><h2>Add a student skill</h2></div><button type="button" class="close-button" id="closeDialog" aria-label="Close">×</button></div>
+      <label>Your name<input name="name" required maxlength="45" placeholder="e.g. Alex Thomas"></label>
+      <label>Skill you can teach<input name="teach" required maxlength="60" placeholder="e.g. Java basics"></label>
+      <label>Skill you want to learn<input name="learn" required maxlength="60" placeholder="e.g. UI design"></label>
+      <label>Category<select name="category" required><option value="Technology">Technology</option><option value="Design">Design</option><option value="Music">Music</option><option value="Academics">Academics</option><option value="Communication">Communication</option></select></label>
+      <label>Short introduction<textarea name="bio" maxlength="140" rows="3" placeholder="A little about your interests…"></textarea></label>
+      <p class="form-note">Demo only: information is saved in this browser, not sent to a server.</p>
+      <button class="button form-submit" type="submit">Add profile</button>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
